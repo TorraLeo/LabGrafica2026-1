@@ -2,6 +2,7 @@
 #include <string.h>
 #include <glew.h>
 #include <glfw3.h>
+#include <chrono>
 
 //Dimensiones de la ventana
 const int WIDTH = 800, HEIGHT = 800;
@@ -58,17 +59,17 @@ void CrearTriangulo()
 
 	glGenBuffers(1, &VBO);
 	glBindBuffer(GL_ARRAY_BUFFER, VBO);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW); //pasarle los datos al VBO asignando tamano, los datos y en este caso es estï¿½tico pues no se modificarï¿½n los valores
+	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW); //pasarle los datos al VBO asignando tamano, los datos y en este caso es estático pues no se modificarán los valores
 
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GL_FLOAT), (GLvoid*)0);//Stride en caso de haber datos de color por ejemplo, es saltar cierta cantidad de datos
 	glEnableVertexAttribArray(0);
-	//agregar valores a vï¿½rtices y luego declarar un nuevo vertexAttribPointer
+	//agregar valores a vèrtices y luego declarar un nuevo vertexAttribPointer
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 	glBindVertexArray(0);
 
 }
 
-void AddShader(GLuint theProgram, const char* shaderCode, GLenum shaderType) //Funciï¿½n para agregar los shaders a la tarjeta grï¿½fica
+void AddShader(GLuint theProgram, const char* shaderCode, GLenum shaderType) //Función para agregar los shaders a la tarjeta gráfica
 
 //the Program recibe los datos de theShader
 
@@ -78,11 +79,11 @@ void AddShader(GLuint theProgram, const char* shaderCode, GLenum shaderType) //F
 	theCode[0] = shaderCode;//shaderCode es el texto que se le pasa a theCode
 	GLint codeLength[1];
 	codeLength[0] = strlen(shaderCode);//longitud del texto
-	glShaderSource(theShader, 1, theCode, codeLength);//Se le asigna al shader el cï¿½digo
+	glShaderSource(theShader, 1, theCode, codeLength);//Se le asigna al shader el código
 	glCompileShader(theShader);//Se comila el shader
 	GLint result = 0;
 	GLchar eLog[1024] = { 0 };
-	//verificaciones y prevenciï¿½n de errores
+	//verificaciones y prevención de errores
 	glGetShaderiv(theShader, GL_COMPILE_STATUS, &result);
 	if (!result)
 	{
@@ -90,7 +91,7 @@ void AddShader(GLuint theProgram, const char* shaderCode, GLenum shaderType) //F
 		printf("EL error al compilar el shader %d es: %s \n", shaderType, eLog);
 		return;
 	}
-	glAttachShader(theProgram, theShader);//Si no hubo problemas se asigna el shader a theProgram el cual asigna el cï¿½digo a la tarjeta grï¿½fica
+	glAttachShader(theProgram, theShader);//Si no hubo problemas se asigna el shader a theProgram el cual asigna el código a la tarjeta gráfica
 }
 
 void CompileShaders() {
@@ -105,8 +106,8 @@ void CompileShaders() {
 	//Para terminar de linkear el programa y ver que no tengamos errores
 	GLint result = 0;
 	GLchar eLog[1024] = { 0 };
-	glLinkProgram(shader);//se linkean los shaders a la tarjeta grï¿½fica
-	//verificaciones y prevenciï¿½n de errores
+	glLinkProgram(shader);//se linkean los shaders a la tarjeta gráfica
+	//verificaciones y prevención de errores
 	glGetProgramiv(shader, GL_LINK_STATUS, &result);
 	if (!result)
 	{
@@ -147,15 +148,15 @@ void fondoCiclo()
 
 int main()
 {
-	//Inicializaciï¿½n de GLFW
+	//Inicialización de GLFW
 	if (!glfwInit())
 	{
-		printf("Fallï¿½ inicializar GLFW");
+		printf("Falló inicializar GLFW");
 		glfwTerminate();
 		return 1;
 	}
 
-	//****  LAS SIGUIENTES 4 Lï¿½NEAS SE COMENTAN EN DADO CASO DE QUE AL USUARIO NO LE FUNCIONE LA VENTANA Y PUEDA CONOCER LA VERSIï¿½N DE OPENGL QUE TIENE ****/
+	//****  LAS SIGUIENTES 4 LÍNEAS SE COMENTAN EN DADO CASO DE QUE AL USUARIO NO LE FUNCIONE LA VENTANA Y PUEDA CONOCER LA VERSIÓN DE OPENGL QUE TIENE ****/
 
 	//Asignando variables de GLFW y propiedades de ventana
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
@@ -173,7 +174,7 @@ int main()
 		glfwTerminate();
 		return 1;
 	}
-	//Obtener tamaï¿½o de Buffer
+	//Obtener tamaño de Buffer
 	int BufferWidth, BufferHeight;
 	glfwGetFramebufferSize(mainWindow, &BufferWidth, &BufferHeight);
 
@@ -185,7 +186,7 @@ int main()
 
 	if (glewInit() != GLEW_OK)
 	{
-		printf("Fallï¿½ inicializaciï¿½n de GLEW");
+		printf("Falló inicialización de GLEW");
 		glfwDestroyWindow(mainWindow);
 		glfwTerminate();
 		return 1;
@@ -218,7 +219,7 @@ int main()
 
 		glfwSwapBuffers(mainWindow);
 
-		//NO ESCRIBIR NINGUNA Lï¿½NEA DESPUï¿½S DE glfwSwapBuffers(mainWindow); 
+		//NO ESCRIBIR NINGUNA LÍNEA DESPUÉS DE glfwSwapBuffers(mainWindow); 
 	}
 
 
