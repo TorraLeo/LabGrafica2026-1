@@ -1,12 +1,5 @@
-![Buaf](buaf.png)
-# Laboratorio de Computación Gráfica e Interacción Humano Computadora. 
-Repositorio de actividades del laboratorio.
-
-<p align="center">
-Alumno: Darwin Leonel Luna Alberto
-</p>
-
 ![Buef](buef.png)
-## Prácticas
-### [Práctica 1. Introducción a OpenGL](https://github.com/TorraLeo/LabGrafica2026-1/tree/Practica-01)
-#### [Ejercicios de Clase](https://github.com/TorraLeo/LabGrafica2026-1/tree/Practica-01/Ejercicios%20Clase)
+# Práctica 2. Introducción a OpenGL
+## Entregables
+  1.- Dibujar las iniciales de sus nombres, cada letra de un color diferente.  
+  2.- Generar el dibujo de la casa de la clase, pero en lugar de instanciar triangulos y cuadrados será instanciando piramides y cubos, para esto se requiere crear shaders diferentes de los colores: rojo, verde, azul, café y verde oscuro en lugar de usar el shader con el color clamp.
