@@ -13,3 +13,6 @@ Alumno: Darwin Leonel Luna Alberto
 
 ### [Práctica 2. Proyecciones y Puertos de Vista. Transformaciones Geométricas.](https://github.com/TorraLeo/LabGrafica2026-1/tree/Practica-02)
 #### [Ejercicios de Clase](https://github.com/TorraLeo/LabGrafica2026-1/tree/Practica-02/Ejercicios%20Clase)
+
+### [Práctica 3. Modelado Geométrico y Cámara Sintética.](https://github.com/TorraLeo/LabGrafica2026-1/tree/Practica-03)
+#### [Ejercicios de Clase](https://github.com/TorraLeo/LabGrafica2026-1/tree/Practica-03/EjerciciosClase)
