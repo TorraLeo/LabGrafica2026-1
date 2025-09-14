@@ -16,3 +16,6 @@ Alumno: Darwin Leonel Luna Alberto
 
 ### [Práctica 3. Modelado Geométrico y Cámara Sintética.](https://github.com/TorraLeo/LabGrafica2026-1/tree/Practica-03)
 #### [Ejercicios de Clase](https://github.com/TorraLeo/LabGrafica2026-1/tree/Practica-03/EjerciciosClase)
+
+### [Práctica 4. Modelado Jerárquico.](https://github.com/TorraLeo/LabGrafica2026-1/tree/Practica-04)
+#### [Ejercicios de Clase](https://github.com/TorraLeo/LabGrafica2026-1/tree/Practica-04/EjerciciosClase)
