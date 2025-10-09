@@ -13,32 +13,7 @@ Window::Window(GLint windowWidth, GLint windowHeight)
 {
 	width = windowWidth;
 	height = windowHeight;
-	rotax = 0.0f;
-	rotay = 0.0f;
-	rotaz = 0.0f;
-	articulacion1 = 0.0f;
-	articulacion2 = 0.0f;
-	articulacion3 = 0.0f;
-	articulacion4 = 0.0f;
-	articulacion5 = 0.0f;
-	articulacion6 = 0.0f;
-	articulacion7 = 0.0f;
-	articulacion8 = 0.0f;
-	// LOBO
-		//PATAS
-	buin1 = 0.0f;
-	buin2 = 0.0f;
-	buin3 = 0.0f;
-	buin4 = 0.0f;
-	buin5 = 0.0f;
-	buin6 = 0.0f;
-	buin7 = 0.0f;
-	buin8 = 0.0f;
-		//COLA
-	buin9 = 0.0f;
-	buin10 = 0.0f;
-
-	
+	muevex = 2.0f;
 	for (size_t i = 0; i < 1024; i++)
 	{
 		keys[i] = 0;
@@ -61,8 +36,8 @@ int Window::Initialise()
 	glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
 
 	//CREAR VENTANA
-	mainWindow = glfwCreateWindow(width, height, "Practica 04: Modelado Jer\xC3\xA1rquico", NULL, NULL);
-
+	mainWindow = glfwCreateWindow(width, height, "Practica 06: Texturizado", NULL, NULL);
+	
 	if (!mainWindow)
 	{
 		printf("Fallo en crearse la ventana con GLFW");
@@ -104,7 +79,6 @@ void Window::createCallbacks()
 	glfwSetKeyCallback(mainWindow, ManejaTeclado);
 	glfwSetCursorPosCallback(mainWindow, ManejaMouse);
 }
-
 GLfloat Window::getXChange()
 {
 	GLfloat theChange = xChange;
@@ -119,6 +93,9 @@ GLfloat Window::getYChange()
 	return theChange;
 }
 
+
+
+
 void Window::ManejaTeclado(GLFWwindow* window, int key, int code, int action, int mode)
 {
 	Window* theWindow = static_cast<Window*>(glfwGetWindowUserPointer(window));
@@ -127,72 +104,39 @@ void Window::ManejaTeclado(GLFWwindow* window, int key, int code, int action, in
 	{
 		glfwSetWindowShouldClose(window, GL_TRUE);
 	}
+	if (key == GLFW_KEY_Y)
+	{
+		theWindow-> muevex += 1.0;
+	}
+	if (key == GLFW_KEY_U)
+	{
+		theWindow-> muevex -= 1.0;
+	}
 
+	if (key == GLFW_KEY_V)
+	{
+		if (theWindow->angulocola > 40.0)
+		{
+		}
+		else
+		{
+			theWindow->angulocola += 10.0;
+		}
+	}
+
+	if (key == GLFW_KEY_B)
+	{
+		if (theWindow->angulocola < -40.0)
+		{
+		}
+		else
+		{
+			theWindow->angulocola -= 10.0;
+		}
+	}
 	
-	if (key == GLFW_KEY_E)
-	{
-		theWindow->rotax += 10.0;
-	}
-	if (key == GLFW_KEY_R)
-	{
-		theWindow->rotay += 10.0; //rotar sobre el eje y 10 grados
-	}
-	if (key == GLFW_KEY_T)
-	{
-		theWindow->rotaz += 10.0;
-	}
 
-	// ------------------------ ESTAS SI SE LIMITAN POR LA NATURALEZA DE LA GRUA XD------------------------
-	if (key == GLFW_KEY_F)
-	{
-		theWindow->articulacion1 += 10.0;   //LIMITAR ROTACION INVESTIGAR
-		if (theWindow->articulacion1 > 40) {
-			theWindow->articulacion1 = 40;
-		}
-	}
 
-	if (key == GLFW_KEY_G)
-	{
-		theWindow->articulacion2 -= 10.0;
-		if (theWindow->articulacion2 < -60) {
-			theWindow->articulacion2 = -60;
-		}
-	}
-	if (key == GLFW_KEY_H)
-	{
-		theWindow->articulacion3 += 10.0;
-		if (theWindow->articulacion3 > 140) {
-			theWindow->articulacion3 = 140;
-		}
-	}
-	if (key == GLFW_KEY_J)
-	{
-		theWindow->articulacion4 += 10.0;
-	}
-	// ------------------------ ESTAS 4 TECLAS NO TIENEN LIMITE DE MOVIMIENTO PQ SON RUEDAS------------------------
-	if (key == GLFW_KEY_K)
-	{
-		theWindow->articulacion5 += 10.0;
-	}
-	if (key == GLFW_KEY_L)
-	{
-		theWindow->articulacion6 += 10.0;
-	}
-	// ---------------------NUEVAS TECLAS PARA LA GRUA---------------------
-	if (key == GLFW_KEY_O)
-	{
-		theWindow->articulacion7 += 10.0;
-	}
-	if (key == GLFW_KEY_P)
-	{
-		theWindow->articulacion8 += 10.0;
-	}
-
-	if (key == GLFW_KEY_D && action == GLFW_PRESS)
-	{
-		const char* key_name = glfwGetKeyName(GLFW_KEY_D, 0);
-		//printf("se presiono la tecla: %s\n",key_name);
-	}
 
 	if (key >= 0 && key < 1024)
 	{
@@ -206,48 +150,6 @@ void Window::ManejaTeclado(GLFWwindow* window, int key, int code, int action, in
 			theWindow->keys[key] = false;
 			//printf("se solto la tecla %d'\n", key);
 		}
-	}
-
-	// ---------------------- BUINTER -------------------
-	if (key == GLFW_KEY_1)
-	{
-		theWindow->buin1 += 10.0;
-	}
-	if (key == GLFW_KEY_2)
-	{
-		theWindow->buin2 += 10.0;
-	}
-	if (key == GLFW_KEY_3)
-	{
-		theWindow->buin3 += 10.0;
-	}
-	if (key == GLFW_KEY_4)
-	{
-		theWindow->buin4 += 10.0;
-	}
-	if (key == GLFW_KEY_5)
-	{
-		theWindow->buin5 += 10.0;
-	}
-	if (key == GLFW_KEY_6)
-	{
-		theWindow->buin6 += 10.0;
-	}
-	if (key == GLFW_KEY_7)
-	{
-		theWindow->buin7 += 10.0;
-	}
-	if (key == GLFW_KEY_8)
-	{
-		theWindow->buin8 += 10.0;
-	}
-	if (key == GLFW_KEY_9)
-	{
-		theWindow->buin9 += 10.0;
-	}
-	if (key == GLFW_KEY_0) 
-	{
-		theWindow->buin10 += 10.0;
 	}
 }
 
