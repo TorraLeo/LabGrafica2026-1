@@ -1,12 +1,6 @@
 ![Buef](buef.png)
-# Práctica 4. Modelado Jerárquico
+# Práctica 6. Texturizado
 ## Entregables
-### 1.- Terminar la Grúa con:  
--cuerpo(prisma rectangular)  
--brazo  
--base (pirámide cuadrangular)  
--4 llantas( 4 cilindros) con teclado se pueden girar las 4 llantas por separado  
-### 2.- Crear un animal robot 3d
--Instanciando cubos, pirámides, cilindros, conos, esferas:  
--4 patas articuladas en 2 partes (con teclado se puede mover las dos articulaciones de cada pata por separado)  
--cola articulada o 2 orejas articuladas. (con teclado se puede mover la cola o cada oreja independiente)
+**Ejercicio 1:** Crear un dado de 8 caras y texturizarlo por medio de código con imagen de números.  
+**Ejercicio 2:** Importar el modelo de su coche con sus 4 llantas acomodadas y tener texturizadas las 4 llantas (diferenciar caucho y rin)  
+**Ejercicio 3:** Texturizar la cara del personaje de la imagen tipo cars en el espejo (ojos) y detalles en cofre y parrilla de su propio modelo de coche 
