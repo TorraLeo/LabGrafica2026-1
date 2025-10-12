@@ -1,6 +1,4 @@
 ![Buef](buef.png)
-# Práctica 6. Texturizado
+# Práctica 7. Iluminación I
 ## Entregables
-**Ejercicio 1:** Crear un dado de 8 caras y texturizarlo por medio de código con imagen de números.  
-**Ejercicio 2:** Importar el modelo de su coche con sus 4 llantas acomodadas y tener texturizadas las 4 llantas (diferenciar caucho y rin)  
-**Ejercicio 3:** Texturizar la cara del personaje de la imagen tipo cars en el espejo (ojos) y detalles en cofre y parrilla de su propio modelo de coche 
+**Ejercicio 1:** Buaf.
