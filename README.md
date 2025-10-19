@@ -1,4 +1,4 @@
 ![Buef](buef.png)
-# Práctica 7. Iluminación I
+# Práctica 8. Iluminación II
 ## Entregables
 **Ejercicio 1:** Buaf.
