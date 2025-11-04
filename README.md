@@ -1,4 +1,4 @@
 ![Buef](buef.png)
-# Práctica 7. Iluminación I
+# Práctica 10. Animación por Keyframes
 ## Entregables
 **Ejercicio 1:** Buaf.
